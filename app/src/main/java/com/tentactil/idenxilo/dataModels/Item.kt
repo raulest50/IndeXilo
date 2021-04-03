@@ -1,4 +1,4 @@
-package com.tentactil.idenxilo
+package com.tentactil.idenxilo.dataModels
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
