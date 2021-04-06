@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
 
         binding.floatingActionButton.setOnClickListener({
             var addItemDialog:AddItemFragment = AddItemFragment(this)
-            addItemDialog.show(act.supportFragmentManager, "Agrgar Item a kardex")
+            addItemDialog.show(act.supportFragmentManager, "Agregar Item a kardex")
         })
 
         // cada que cambia el text en el campo de busqueda

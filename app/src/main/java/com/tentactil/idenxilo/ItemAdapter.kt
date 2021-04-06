@@ -7,10 +7,11 @@ import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tentactil.idenxilo.dataModels.Item
 import com.tentactil.idenxilo.databinding.ItemBinding
+import com.tentactil.idenxilo.dialogFragments.MovimientoFragment
 import java.lang.IndexOutOfBoundsException
 import java.util.*
 
-class ItemAdapter(var SupportFragmentManager: FragmentManager):
+class ItemAdapter(var supportFragmentManager: FragmentManager):
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     private var listaItems = LinkedList<Item>()
@@ -64,7 +65,10 @@ class ItemAdapter(var SupportFragmentManager: FragmentManager):
             binding.tvCodigo.text = item._id
             binding.tvDescripcion.text = item.nombre
             binding.tvN.text = Integer.toString(item.N)
-            binding.btnMovimiento.setOnClickListener({})
+            binding.btnMovimiento.setOnClickListener({
+                var movimientoDialogFragment = MovimientoFragment(item)
+                movimientoDialogFragment.show(supportFragmentManager, "Ingresar movimiento del item")
+            })
         }
     }
 }
