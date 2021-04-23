@@ -1,20 +1,19 @@
 package com.tentactil.idenxilo.dataModels
 
+import io.realm.RealmObject
+import io.realm.annotations.Ignore
 import org.joda.time.LocalDateTime
 
 /**
  * Cada item tendra muchos movimientos
  */
-class Movimiento {
+open class Movimiento(
+        var D:Int = 0, // cantidad de items que se suman o restan
+        var descripcion:String = "",
+        //var fechaJ:LocalDateTime = LocalDateTime.now().toString,
+        var fecha:String = LocalDateTime.now().toString()
 
-    var D = 0 // cantidad de items que se suman o restan
-    var descripcion = ""
-    lateinit var fecha:LocalDateTime
+): RealmObject() {
 
-    constructor(D:Int, descripcion:String, fecha:LocalDateTime){
-        this.D = D
-        this.descripcion = descripcion
-        this.fecha = fecha
-        //this.fecha = LocalDateTime.now()
-    }
+
 }

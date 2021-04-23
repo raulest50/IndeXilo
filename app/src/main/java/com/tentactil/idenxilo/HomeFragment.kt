@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
 
         // se inicializa el recyvlerview (lista en la que se ponen los items en bodega)
         viewManager = LinearLayoutManager(this.activity)
-        itemAdapter = ItemAdapter(act.supportFragmentManager)
+        itemAdapter = ItemAdapter(act.supportFragmentManager, this)
 
         binding.recyclerViewListaItems.layoutManager = viewManager
         binding.recyclerViewListaItems.adapter = itemAdapter

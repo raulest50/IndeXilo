@@ -11,7 +11,7 @@ import com.tentactil.idenxilo.dialogFragments.MovimientoFragment
 import java.lang.IndexOutOfBoundsException
 import java.util.*
 
-class ItemAdapter(var supportFragmentManager: FragmentManager):
+class ItemAdapter(var supportFragmentManager: FragmentManager, var homeFragment: HomeFragment):
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     private var listaItems = LinkedList<Item>()
@@ -64,9 +64,9 @@ class ItemAdapter(var supportFragmentManager: FragmentManager):
             val binding:ItemBinding = ItemBinding.bind(view)
             binding.tvCodigo.text = item._id
             binding.tvDescripcion.text = item.nombre
-            binding.tvN.text = Integer.toString(item.N)
+            binding.tvN.text = Integer.toString(item.SumMovs())
             binding.btnMovimiento.setOnClickListener({
-                var movimientoDialogFragment = MovimientoFragment(item)
+                var movimientoDialogFragment = MovimientoFragment(item, homeFragment, supportFragmentManager)
                 movimientoDialogFragment.show(supportFragmentManager, "Ingresar movimiento del item")
             })
         }

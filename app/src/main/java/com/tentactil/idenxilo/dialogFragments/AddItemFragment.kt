@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.tentactil.idenxilo.HomeFragment
 import com.tentactil.idenxilo.dataModels.Item
+import com.tentactil.idenxilo.dataModels.Movimiento
 import com.tentactil.idenxilo.databinding.FragmentAddItemBinding
 import io.realm.Realm
+import io.realm.RealmList
 import java.util.*
 
 
@@ -52,7 +54,7 @@ class AddItemFragment(var homeFragment:HomeFragment) : DialogFragment() {
                         Realm.getInstanceAsync(homeFragment.act.config, object : Realm.Callback(){
                             override fun onSuccess(realm: Realm) {
                                 realm.executeTransaction{ r: Realm ->
-                                    val item = Item(id.toString(), descri.toString(), 0, LinkedList())
+                                    val item = Item(id.toString(), descri.toString(), 0, RealmList<Movimiento>() )
                                     realm.insertOrUpdate(item)
                                     homeFragment.LoadItemList(homeFragment.act.config)
                                     dismiss()

@@ -11,7 +11,7 @@ import io.realm.RealmConfiguration
 
 class MainActivity : AppCompatActivity() {
 
-    val realmName: String = "IdexiloRealm"
+    val realmName: String = "IdexiloRealm2"
 
     lateinit var config: RealmConfiguration
 
